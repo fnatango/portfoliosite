@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | 株式会社ねむねむコスメ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .page-hero {
+      padding-top: 68px;
+      background: linear-gradient(135deg, #fff3c4 0%, #fde8f0 100%);
+      text-align: center;
+      padding-bottom: 80px;
+    }
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 32px 0;
+    }
+    .page-hero h1 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      color: var(--color-text-light);
+    }
+
+    /* ---- フォームエリア ---- */
+    .contact-section {
+      background-color: var(--color-white);
+      padding: 100px 0;
+    }
+
+    .contact-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .contact-note {
+      background-color: var(--color-cream);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+
+    .form-field {
+      margin-bottom: 28px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-label .required {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid rgba(242,167,195,0.3);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      outline: none;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--color-primary);
+      background-color: var(--color-white);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #c4a8a8;
+    }
+
+    .form-textarea {
+      height: 160px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+      margin-top: 12px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(242,167,195,0.4);
+      background-color: #e891b0;
+    }
+
+    .form-submit:active {
+      transform: scale(0.98);
+    }
+
+    /* ---- FAQ ---- */
+    .faq {
+      background-color: var(--color-cream);
+      padding: 100px 0;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background-color: var(--color-white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-dark);
+    }
+
+    .faq-q-icon {
+      background-color: var(--color-primary);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px 72px;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .faq-answer { padding-left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+<div class="header-inner">
+  <div class="site-logo">
+    <span class="logo-emoji">😴</span>
+    ねむねむコスメ
+  </div>
+
+  <!-- ハンバーガーボタン（スマホのみ表示） -->
+  <button type="button" id="js-nemu-drawer-btn" class="nemu-menu-btn">
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+  </button>
+
+  <!-- ナビ＋カート -->
+  <div id="js-nemu-drawer" class="header-drawer">
+    <nav class="global-nav">
+      <ul>
+        <li><a href="./index.html">TOP</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon-wrap">
+      🛒 <span>カート</span><span id="js-cart-count" class="cart-count">0</span>
+      <button type="button" id="js-cart-reset" class="cart-reset-btn">🗑️</button>
+    </div>
+  </div>
+</div>  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner fade-up">
+        <h1>Contact 💌</h1>
+        <p>眠そうな文章でのお問い合わせも、温かく受け付けております。</p>
+      </div>
+    </section>
+
+    <!-- フォーム -->
+    <section class="contact-section">
+      <div class="contact-wrap fade-up">
+        <div class="contact-note">
+          💤 担当者が昼寝中の場合、返信に2〜3営業日いただく場合がございます。<br>
+          「返信こなかったな…」と思ったら、再度お送りください。たぶん寝てます。
+        </div>
+
+        <form onsubmit="return false;">
+          <div class="form-field">
+            <label class="form-label">お名前 <span class="required">必須</span></label>
+            <input type="text" class="form-input" placeholder="眠田 ぐっすり" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">メールアドレス <span class="required">必須</span></label>
+            <input type="email" class="form-input" placeholder="nemunemu@example.com" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">お問い合わせの種類</label>
+            <select class="form-select">
+              <option value="">選んでください（眠そうなものが多め）</option>
+              <option>商品について</option>
+              <option>購入・在庫について</option>
+              <option>寝落ちしてパックはがし忘れた件</option>
+              <option>その他（なんとなく）</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">お問い合わせ内容 <span class="required">必須</span></label>
+            <textarea class="form-textarea" placeholder="ねむそうな内容でも大丈夫です。" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">😴 送信する（起きてる間に）</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">FAQ</span>
+          <span class="ja">よくある（ねむそうな）質問</span>
+        </div>
+        <ul class="faq-list">
+          <li class="faq-item fade-up">
+            <div class="faq-question">
+              <span class="faq-q-icon">Q</span>
+              本当に寝ながら使えますか？
+            </div>
+            <p class="faq-answer">はい、すべての商品は「寝ながら使う」を前提に設計されています。ただしクリームはふたを閉めてから寝てください。</p>
+          </li>
+          <li class="faq-item fade-up">
+            <div class="faq-question">
+              <span class="faq-q-icon">Q</span>
+              フェイスパックをつけたまま朝を迎えてしまいました。
+            </div>
+            <p class="faq-answer">よくあることです。そのままはがせば問題ありません。「まあ、いっか」の精神でいきましょう。むしろ長時間パックの効果に期待してください（効果については保証しません）。</p>
+          </li>
+          <li class="faq-item fade-up">
+            <div class="faq-question">
+              <span class="faq-q-icon">Q</span>
+              「もうどうにでもなれ」という商品名に不安を感じています。
+            </div>
+            <p class="faq-answer">ご安心ください。「肌がどうにでもなる」のではなく、「スキンケアへの執着を手放したとき、肌は自然と整う」という意味です。たぶん。</p>
+          </li>
+          <li class="faq-item fade-up">
+            <div class="faq-question">
+              <span class="faq-q-icon">Q</span>
+              問い合わせの返信がなかなか来ないのですが。
+            </div>
+            <p class="faq-answer">担当者が昼寝をしている可能性が高いです。恐れ入りますが、再度ご連絡いただくか、もう少しだけお待ちください。起きたら必ず返信します。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">😴 ねむねむコスメ</div>
+    <p>がんばらない美容を、すべての人に。</p>
+    <p class="footer-copy">© 2025 株式会社ねむねむコスメ All Rights Reserved.</p>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

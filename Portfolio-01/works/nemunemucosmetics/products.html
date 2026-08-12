@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | 株式会社ねむねむコスメ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .page-hero {
+      padding-top: 68px;
+      background: linear-gradient(135deg, #d4eaff 0%, #fde8f0 100%);
+      text-align: center;
+      padding-bottom: 80px;
+    }
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 32px 0;
+    }
+    .page-hero h1 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      color: var(--color-text-light);
+    }
+
+    /* ---- 商品詳細 ---- */
+    .product-detail {
+      padding: 100px 0;
+    }
+    .product-detail:nth-child(even) {
+      background-color: var(--color-cream);
+    }
+    .product-detail:nth-child(odd) {
+      background-color: var(--color-white);
+    }
+
+    .product-detail-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .product-detail:nth-child(even) .product-detail-inner {
+      direction: rtl;
+    }
+    .product-detail:nth-child(even) .product-detail-text {
+      direction: ltr;
+    }
+    .product-detail:nth-child(even) .product-detail-visual {
+      direction: ltr;
+    }
+
+    .product-detail-visual {
+      border-radius: 32px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-visual-1 {
+      background: linear-gradient(135deg, #fde8f0 0%, #f9c8dc 100%);
+      box-shadow: 0 20px 60px rgba(242,167,195,0.3);
+    }
+    .product-visual-2 {
+      background: linear-gradient(135deg, #d4eaff 0%, #b5d5f5 100%);
+      box-shadow: 0 20px 60px rgba(181,213,245,0.4);
+    }
+    .product-visual-3 {
+      background: linear-gradient(135deg, #fff3c4 0%, #f9e04b 100%);
+      box-shadow: 0 20px 60px rgba(249,224,75,0.3);
+    }
+
+    .product-emoji {
+      animation: fuwa-slow 4s ease-in-out infinite;
+    }
+
+    .product-detail-text .product-number {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 5rem;
+      color: rgba(242,167,195,0.2);
+      line-height: 1;
+      margin-bottom: -16px;
+    }
+
+    .product-detail-text .product-tag {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .product-detail-text h2 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--color-dark);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .product-detail-text .product-catch {
+      font-size: 1rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .product-detail-text p {
+      color: var(--color-text-light);
+      line-height: 2;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .product-points {
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-point {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--color-bg);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
+    .product-point .point-icon {
+      font-size: 1.2rem;
+    }
+
+    .product-price {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--color-dark);
+      margin: 24px 0;
+    }
+
+    .product-price span {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      font-weight: 400;
+    }
+
+    /* ---- 口コミ ---- */
+    .reviews {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      padding: 100px 0;
+    }
+
+    .reviews .section-heading .en {
+      color: var(--color-white);
+    }
+
+    .reviews .section-heading .ja {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background-color: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .review-stars {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .review-text {
+      color: var(--color-white);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .review-author {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .product-detail-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        direction: ltr !important;
+      }
+      .product-detail-visual { height: 260px; font-size: 7rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+<div class="header-inner">
+  <div class="site-logo">
+    <span class="logo-emoji">😴</span>
+    ねむねむコスメ
+  </div>
+
+  <!-- ハンバーガーボタン（スマホのみ表示） -->
+  <button type="button" id="js-nemu-drawer-btn" class="nemu-menu-btn">
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+  </button>
+
+  <!-- ナビ＋カート -->
+  <div id="js-nemu-drawer" class="header-drawer">
+    <nav class="global-nav">
+      <ul>
+        <li><a href="./index.html">TOP</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon-wrap">
+      🛒 <span>カート</span><span id="js-cart-count" class="cart-count">0</span>
+      <button type="button" id="js-cart-reset" class="cart-reset-btn">🗑️</button>
+    </div>
+  </div>
+</div>  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner fade-up">
+        <h1>Products 🛍️</h1>
+        <p>全商品、寝ながら使えます（使用感には個人差があります）</p>
+      </div>
+    </section>
+
+    <!-- 商品1 -->
+    <section class="product-detail">
+      <div class="product-detail-inner">
+        <div class="product-detail-visual product-visual-1 fade-up">
+          <span class="product-emoji">🫧</span>
+        </div>
+        <div class="product-detail-text fade-up">
+          <div class="product-number">01</div>
+          <span class="product-tag">保湿クリーム</span>
+          <h2>「もうどうにでもなれ」<br>保湿クリーム</h2>
+          <p class="product-catch">あきらめたとき、肌は逆にきれいになる説。</p>
+          <p>開発者が「もう毎日ちゃんとやるの無理！」と叫んだ夜に誕生しました。塗るだけ。それ以上のことは何も要求しません。</p>
+          <p>成分はとにかくシンプル。難しい横文字は使いません。「保湿するやつ」が入っています。</p>
+          <div class="product-points">
+            <div class="product-point"><span class="point-icon">😴</span>寝る前に塗るだけでOK</div>
+            <div class="product-point"><span class="point-icon">💧</span>48時間うるおい持続（当社調べ・起きてる間）</div>
+            <div class="product-point"><span class="point-icon">🌿</span>無香料・無着色・無気力な開発者が製造</div>
+          </div>
+          <div class="product-price">¥2,980 <span>（税込）</span></div>
+           <div class="cart-wrap">
+            <select name="" id="" class="cart-select">
+              <option value="1">1個</option>
+              <option value="2">2個</option>
+              <option value="3">3個</option>
+              <option value="4">4個</option>
+              <option value="5">5個</option>
+            </select>
+            <button type="button" class="btn btn-primary cart-btn">🛒 カートに入れる</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 商品2 -->
+    <section class="product-detail">
+      <div class="product-detail-inner">
+        <div class="product-detail-visual product-visual-2 fade-up">
+          <span class="product-emoji">🌙</span>
+        </div>
+        <div class="product-detail-text fade-up">
+          <div class="product-number">02</div>
+          <span class="product-tag">フェイスパック</span>
+          <h2>ぐっすり眠れる香りの<br>フェイスパック「おやすみ〜」</h2>
+          <p class="product-catch">貼ったら5秒で眠れます（個人差あり）。</p>
+          <p>ラベンダーとカモミールと「もう今日は終わり」という気持ちを配合しました。翌朝はがすのを忘れないでください。忘れてもまあ別にいいですが。</p>
+          <p>開発段階で社員12名全員が試験中に寝落ちしたため、効果は折り紙付きです。</p>
+          <div class="product-points">
+            <div class="product-point"><span class="point-icon">🌙</span>ラベンダー＆カモミール配合</div>
+            <div class="product-point"><span class="point-icon">⏰</span>15〜20分推奨（そのまま寝ても可）</div>
+            <div class="product-point"><span class="point-icon">😪</span>翌朝のはがし忘れに保証なし</div>
+          </div>
+          <div class="product-price">¥1,480 <span>（税込・5枚入り）</span></div>
+           <div class="cart-wrap">
+            <select name="" id="" class="cart-select">
+              <option value="1">1個</option>
+              <option value="2">2個</option>
+              <option value="3">3個</option>
+              <option value="4">4個</option>
+              <option value="5">5個</option>
+            </select>
+            <button type="button" class="btn btn-primary cart-btn">🛒 カートに入れる</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 商品3 -->
+    <section class="product-detail">
+      <div class="product-detail-inner">
+        <div class="product-detail-visual product-visual-3 fade-up">
+          <span class="product-emoji">💛</span>
+        </div>
+        <div class="product-detail-text fade-up">
+          <div class="product-number">03</div>
+          <span class="product-tag">リップケア</span>
+          <h2>やる気0%処方の<br>くちびるケア「ねむねむリップ」</h2>
+          <p class="product-catch">塗るだけ。それ以上のことは何もしなくていいです。</p>
+          <p>本当に何もしなくていいです。ただ塗ってください。寝てください。翌朝、くちびるがしっとりしていたら成功です。していなくてもまあ、いっか。</p>
+          <p>限定カラー「うとうとピンク」も好評発売中。色がついているので、寝落ちしてもなんとなくメイクしてる感があります。</p>
+          <div class="product-points">
+            <div class="product-point"><span class="point-icon">💛</span>はちみつ＆シアバター配合</div>
+            <div class="product-point"><span class="point-icon">🌸</span>限定色「うとうとピンク」あり</div>
+            <div class="product-point"><span class="point-icon">😴</span>寝落ちしても問題ない処方</div>
+          </div>
+          <div class="product-price">¥980 <span>（税込）</span></div>
+          <div class="cart-wrap">
+            <select name="" id="" class="cart-select">
+              <option value="1">1個</option>
+              <option value="2">2個</option>
+              <option value="3">3個</option>
+              <option value="4">4個</option>
+              <option value="5">5個</option>
+            </select>
+            <button type="button" class="btn btn-primary cart-btn">🛒 カートに入れる</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 口コミ -->
+    <section class="section reviews">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">Reviews</span>
+          <span class="ja">お客様の声（ねむそうな声）</span>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card fade-up">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">「もうどうにでもなれ」クリームを使い始めたら、本当にどうにでもなってきた気がします。肌が、ではなく、私の人生観が。</p>
+            <span class="review-author">30代・会社員・ほぼ寝てる</span>
+          </div>
+          <div class="review-card fade-up">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">フェイスパック貼ったまま朝を迎えました。でもなんか肌がよかったので結果オーライです。ありがとうございました。</p>
+            <span class="review-author">20代・学生・週5で寝落ち</span>
+          </div>
+          <div class="review-card fade-up">
+            <div class="review-stars">⭐⭐⭐⭐☆</div>
+            <p class="review-text">ねむねむリップ、本当に何もしなくていいんですね。何もしてないのにくちびるがしっとりしてて、逆に申し訳なかったです。</p>
+            <span class="review-author">40代・主婦・昼寝の達人</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">😴 ねむねむコスメ</div>
+    <p>がんばらない美容を、すべての人に。</p>
+    <p class="footer-copy">© 2025 株式会社ねむねむコスメ All Rights Reserved.</p>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

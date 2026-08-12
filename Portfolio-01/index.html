@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 検索にヒットさせない（公開時は外すようにして下さい） -->
+  <meta name="robots" content="noindex">
+
+  <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <title>渡邊日花里 | Webマーケター志望ポートフォリオ</title>
+  <meta name="description" content="わたひかのポートフォリオサイトです。">
+
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+</head>
+<body>
+  <header class="header">
+    <div class="header__wrap">
+      <div class="header__logo">My Portfolio</div>
+      <button type="button" id="js-button-drawer" class="header__menu-button menu-button">
+        <span class="menu-button__bar"></span>
+        <span class="menu-button__bar"></span>
+        <span class="menu-button__bar"></span>
+      </button>
+      <div id="js-drawer" class="header__contents">
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__list-item">
+              <a href="#about" class="header__link">About</a>
+            </li>
+            <li class="header__list-item">
+              <a href="#skills" class="header__link">Skills</a>
+            </li>
+            <li class="header__list-item">
+                <a href="#career" class="header__link">Career</a>
+            </li>
+            <li class="header__list-item">
+              <a href="#works" class="header__link">Works</a>
+            </li>
+            <li class="header__list-item">
+                <a href="#vision" class="header__link">Vision</a>
+            </li>
+            <li class="header__list-item">
+              <a href="#contact" class="header__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+    <main class="main">
+        <div class="hero">
+            <div class="hero__image">
+                <img src="./assets/img/markus-spiske-iABDznUDy6c-unsplash.jpg" alt="">
+            </div>
+            <div class="hero__contents">
+                <hgroup class="hero__heading-group">
+                    <h1 class="hero__title">Hikari WATANABE</h1>
+                    <p class="hero__description">心理学×営業経験を活かす、Webマーケター志望</p>
+                </hgroup>
+            </div>
+        </div>
+
+        <section id="about" class="about">
+            <div class="about__inner inner">
+                <div class="about__wrap">
+                    <div class="about__media">
+                        <div class="about-image__cat">
+                            <img src="./assets/img/IMG_4068.JPG" alt="飼い猫の写真" width="1600" height="1200" loading="lazy">
+                        </div>
+                        <div class="about-image__profile">
+                            <img src="./assets/img/myprofile.jpg" alt="プロフィール写真" width="400" height="300" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="about__image">
+                      
+                    </div>
+                    <div class="about__text-wrap">
+                        <hgroup class="about__heading-group">
+                         <h2 class="about__title">About -</h2>
+                         <p class="about__text">私について</p>
+                         </hgroup>
+                         <p class="about__description">渡邊日花里と申します。</p>
+                         <p class="about__description">2000年生まれのやぎ座、A型、女性です。</p>
+                         <p class="about__description">大学では心理学や統計学を学びました。</p>
+                            <p class="about__description">前職では土木・建設業界向けのITサービスを提供する企業で、営業職を経験してきました。自治体や設計会社へ赴き、システムを通じて業務改善を提案する中で、「ITの力で働く人の環境をより良くしたい」という強い想いが芽生えました。</p>
+                         <p class="about__description">現在は職業訓練校にて、Webマーケティングのフレームワークや構築の知識を学び、自身の市場価値を高めるために日々奮闘しています。データに基づいた論理的な思考と、相手に寄り添うコミュニケーションを大切にしています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="skills__inner">
+                <hgroup class="skills__heading-group">
+                    <h2 class="skills__title">Skills</h2>
+                    <p class="skills__text">できること</p>
+                </hgroup>
+                <p class="skills__lead">前職の経験や、職業訓練校で身に着けたスキルです。</p>
+                <div class="skills__contents">
+                    <ul class="skills__list">
+                        <li class="skills__list-item">
+                            <div class="skills-item__image">
+                                <img src="./assets/img/icon_pc.png" alt="Webマーケティングアイコン">
+                            </div>
+                            <h3 class="skills-item__name">Web Marketing</h3>
+                            <p class="skills-item__name">3CやSWOT分析を用いた市場調査・課題抽出が得意です。</p>
+                            <p class="skills-item__name">ロジックツリーを活用し、数値を根拠にした施策を立案します。</p>
+                        </li>
+
+                        <li class="skills__list-item">
+                            <div class="skills-item__image">
+                                <img src="./assets/img/icon_analyze.png" alt="分析アイコン">
+                            </div>
+                            <h3 class="skills-item__name">Data Management</h3>
+                            <p class="skills-item__name">各種関数を用いたデータ集計や、グラフによるデータの可視化が行えます。</p>
+                            <p class="skills-item__name">実務に直結する、正確で分かりやすいビジネス書類を作成します。</p>
+                        </li>
+
+                        <li class="skills__list-item">
+                            <div class="skills-item__image">
+                                <img src="./assets/img/icon_comunication.png" alt="コミュニケーションアイコン">
+                            </div>
+                            <h3 class="skills-item__name">Customer Relations</h3>
+                            <p class="skills-item__name">丁寧なヒアリングで、お客様の潜在的な課題を汲み取るのが強みです。</p>
+                            <p class="skills-item__name">専門知識を噛み砕き、相手に寄り添って分かりやすくお伝えします。</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="career" class="career">
+            <div class="career__inner inner">
+                <hgroup class="career__heading-group">
+                <h2 class="career__title">Career -</h2>
+                <p class="career__text">経歴</p>
+                </hgroup>
+                <ol class="career__list">
+
+                <li class="career__list-item">
+                    <div class="career__date">2019.04</div>
+                    <div class="career__content">
+                    <h3 class="career__name">🎓 立教大学 現代心理学部 心理学科 入学</h3>
+                    <p class="career__description">心理学を専攻。データに基づいた思考の基礎を培う。</p>
+                    </div>
+                </li>
+
+                <li class="career__list-item">
+                    <div class="career__date">2023.03</div>
+                    <div class="career__content">
+                    <h3 class="career__name">🎓 立教大学 現代心理学部 心理学科  卒業</h3>
+                    <p class="career__description">卒業論文では「口紅が顔の肌の色の印象にもたらす影響」をテーマに研究。</p>
+                    </div>
+                </li>
+
+                <li class="career__list-item">
+                    <div class="career__date">2023.04<br>～2025.05</div>
+                    <div class="career__content">
+                    <h3 class="career__name">💼 土木・建設業界向けITサービス企業</h3>
+                    <p class="career__description">営業職を担当。自治体や設計会社へのシステム提案を経験。</p>
+                    </div>
+                </li>
+
+                <li class="career__list-item">
+                    <div class="career__date">2026.02</div>
+                    <div class="career__content">
+                    <h3 class="career__name">🌱 職業訓練校 後藤企画 入校</h3>
+                    <p class="career__description">WebマーケティングのフレームワークやWeb制作の基礎を学習中。</p>
+                    </div>
+                </li>
+
+                </ol>
+            </div>
+        </section>
+
+        <section id="works" class="works">
+             <div class="works__inner">
+                <hgroup class="works__heading-group">
+                <h2 class="works__title">Works -</h2>
+                <p class="works__text">実績紹介</p>
+                </hgroup>
+                <p class="works__lead">これまでに制作した成果物です。</p>
+                <div class="works__contents">
+                <ul class="works__list">
+
+
+                    <li class="works__list-item works-item">
+                    <div class="works-item__image">
+                        <a href="./works/nemunemucosmetics/index.html" target="_blank" rel="noopener" class="works-item__link">                        <img src="./assets/img/works-item-image-01.png" alt="実績1のサムネイル" width="480" height="320" loading="lazy">
+                        </a>
+
+                    </div>
+                    <h3 class="works-item__name">ねむねむコスメ</h3>
+                    <p class="works-item__name">架空のコーポレートサイト</p>
+                    </li>
+
+
+                    <li class="works__list-item works-item">
+                    <div class="works-item__image">
+                        <a href="#" target="_blank" rel="noopener" class="works-item__link">
+                        <img src="./assets/img/works-item-image-02.png" alt="実績2のサムネイル" width="480" height="320" loading="lazy">
+                        </a>
+                    </div>
+                    <h3 class="works-item__name">マーケティングレポート</h3>
+                    </li>
+                    
+
+                    <li class="works__list-item works-item">
+                    <div class="works-item__image">
+                        <a href="#" target="_blank" rel="noopener" class="works-item__link">
+                        <img src="./assets/img/works-item-image-03.png" alt="実績3のサムネイル" width="480" height="320" loading="lazy">
+                        </a>
+                    </div>
+                    <h3 class="works-item__name">卒業制作</h3>
+                    <p class="works-item__name">編み物初心者向けサイト</p>
+                    <p class="works-item__name">WordPressテーマ開発</p>
+                    </li>
+                    </ul>
+                </div>
+                <div class="cat-slider">
+                <p class="cat-slider__lead">
+                    趣味で撮影した猫の写真です 🐈
+                </p>
+
+                <div class="swiper catSwiper">
+                    <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat1.jpg" alt="猫の写真1">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat2.jpg" alt="猫の写真2">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat3.jpg" alt="猫の写真3">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat4.jpg" alt="猫の写真4">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat5.jpg" alt="猫の写真5">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat6.jpg" alt="猫の写真6">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat7.jpg" alt="猫の写真7">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat8.jpg" alt="猫の写真8">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/img/slider/slider_cat9.jpg" alt="猫の写真9">
+                    </div>
+
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    </div>
+                 </div>
+            </div>
+
+        </section>
+
+        <section id="vision" class="vision">
+        <div class="vision__bg">
+            <div class="vision__inner inner">
+            <hgroup class="vision__heading-group">
+                <h2 class="vision__title">Vision -</h2>
+                <p class="vision__text">目指す未来</p>
+            </hgroup>
+            <p class="vision__description">
+                私の将来の目標は、ITツールを活用して、中小企業の従業員の方々が当たり前にメンタルケアを受けられる環境を支援することです。ビジネスをロジカルに支える「知性」と、働く人の心に寄り添う「温かさ」を大切に、貢献できる企業の一員として歩んでいきたいと考えています。
+            </p>
+            </div>
+        </div>
+        </section>
+
+    <section id="contact" class="contact">
+    <div class="contact__inner inner">
+            <div class="contact__wrap">
+                <div class="contact__image">
+                    <img src="./assets/img/IMG_4243.JPG" alt="コンタクトイメージ" width="600" height="600" loading="lazy">
+                </div>
+                <div class="contact__text-wrap">
+                    <hgroup class="contact__heading-group">
+                    <h2 class="contact__title">Contact -</h2>
+                    <p class="contact__text">お問い合わせ</p>
+                    </hgroup>
+
+                    <form class="contact__form" onsubmit="return false;">
+                        <div class="contact__form-field">
+                            <label for="contact-name" class="contact__form-label">お名前</label>
+                            <input type="text" id="contact-name" class="contact__form-input" placeholder="山田 太郎" required>
+                        </div>
+                        <div class="contact__form-field">
+                            <label for="contact-email" class="contact__form-label">メールアドレス</label>
+                            <input type="email" id="contact-email" class="contact__form-input" placeholder="example@email.com" required>
+                        </div>
+                        <div class="contact__form-field">
+                            <label for="contact-message" class="contact__form-label">お問い合わせ内容</label>
+                            <textarea id="contact-message" class="contact__form-textarea" placeholder="ご用件をご記入ください" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="contact__form-submit">メッセージを送信</button>
+                    </form>
+                    
+                    <p class="contact__sns-lead">または、各種SNSよりお気軽にご連絡ください。</p>
+                    <ul class="contact__links">
+                        <li class="contact__link-item">
+                            <a href="#" onclick="return false;" class="contact__sns-link">
+                                <img src="./assets/img/logo.svg" alt="X" class="contact__sns-icon logo-x-adjust" width="20" height="20" loading="lazy">
+                                <span class="contact__sns-text">X (Twitter)</span>
+                            </a>
+                        </li>
+
+                        <li class="contact__link-item">
+                            <a href="#" onclick="return false;" class="contact__sns-link">
+                                <img src="./assets/img/Instagram_Glyph_Gradient.svg" alt="Instagram" class="contact__sns-icon" width="20" height="20" loading="lazy">
+                                <span class="contact__sns-text">Instagram</span>
+                            </a>
+                        </li>
+
+                        <li class="contact__link-item">
+                            <a href="#" onclick="return false;" class="contact__sns-link">
+                                <img src="./assets/img/bluesky_media_kit_logo_transparent_4.svg" alt="Bluesky" class="contact__sns-icon" width="20" height="20" loading="lazy">
+                                <span class="contact__sns-text">Bluesky</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <!-- ページトップに戻るボタン -->
+    <button type="button" id="js-page-top" class="page-top" aria-label="ページトップへ戻る">
+  ▲
+</button>
+</main>
+
+  <footer class="footer">
+    <div class="footer__inner inner">
+      <nav class="footer__nav">
+        <ul class="footer__list">
+          <li><a href="#about" class="footer__link">About</a></li>
+          <li><a href="#skills" class="footer__link">Skills</a></li>
+          <li><a href="#career" class="footer__link">Career</a></li>
+          <li><a href="#works" class="footer__link">Works</a></li>
+          <li><a href="#vision" class="footer__link">Vision</a></li>
+          <li><a href="#contact" class="footer__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <p class="footer__message">Thank you for visiting my portfolio site.</p>
+
+      <small class="footer__copyright">&copy; 2026 Hikari Watanabe. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
+
+

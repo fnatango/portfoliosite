@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | 株式会社ねむねむコスメ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .page-hero {
+      padding-top: 68px;
+      background: linear-gradient(135deg, var(--color-cream) 0%, #fde8f0 100%);
+      text-align: center;
+      padding-bottom: 80px;
+    }
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 32px 0;
+    }
+    .page-hero h1 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      color: var(--color-text-light);
+      font-size: 1rem;
+    }
+
+    /* ---- 理念 ---- */
+    .philosophy {
+      background-color: var(--color-white);
+    }
+    .philosophy-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .philosophy-block {
+      text-align: center;
+      padding: 60px 0;
+      border-bottom: 2px dashed rgba(242,167,195,0.4);
+    }
+    .philosophy-block:last-child {
+      border-bottom: none;
+    }
+    .philosophy-block .icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 20px;
+      animation: fuwa 3s ease-in-out infinite;
+    }
+    .philosophy-block h3 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+    .philosophy-block p {
+      color: var(--color-text-light);
+      line-height: 2;
+      font-size: 0.95rem;
+    }
+
+    /* ---- 会社概要 ---- */
+    .company {
+      background-color: var(--color-bg);
+    }
+    .company-table {
+      max-width: 700px;
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .company-table tr {
+      border-bottom: 1px dashed rgba(242,167,195,0.4);
+    }
+    .company-table th {
+      padding: 20px 24px;
+      text-align: left;
+      font-family: var(--font-title);
+      font-weight: 700;
+      color: var(--color-primary);
+      width: 160px;
+      vertical-align: top;
+    }
+    .company-table td {
+      padding: 20px 24px;
+      color: var(--color-text);
+      line-height: 1.8;
+    }
+
+    /* ---- メンバー ---- */
+    .members {
+      background-color: var(--color-cream);
+    }
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .member-card {
+      background-color: var(--color-white);
+      border-radius: 24px;
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+    }
+    .member-avatar {
+      font-size: 4.5rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: fuwa 3s ease-in-out infinite;
+    }
+    .member-card:nth-child(2) .member-avatar { animation-delay: 0.5s; }
+    .member-card:nth-child(3) .member-avatar { animation-delay: 1s; }
+    .member-role {
+      font-size: 0.75rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      background-color: var(--color-cream);
+      padding: 3px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .member-name {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-dark);
+      margin-bottom: 12px;
+    }
+    .member-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .members-grid { grid-template-columns: 1fr; }
+      .company-table th { width: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+<div class="header-inner">
+  <div class="site-logo">
+    <span class="logo-emoji">😴</span>
+    ねむねむコスメ
+  </div>
+
+  <!-- ハンバーガーボタン（スマホのみ表示） -->
+  <button type="button" id="js-nemu-drawer-btn" class="nemu-menu-btn">
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+  </button>
+
+  <!-- ナビ＋カート -->
+  <div id="js-nemu-drawer" class="header-drawer">
+    <nav class="global-nav">
+      <ul>
+        <li><a href="./index.html">TOP</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon-wrap">
+      🛒 <span>カート</span><span id="js-cart-count" class="cart-count">0</span>
+      <button type="button" id="js-cart-reset" class="cart-reset-btn">🗑️</button>
+    </div>
+  </div>
+</div>  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner fade-up">
+        <h1>About 🌙</h1>
+        <p>ねむねむコスメとは何者か。真剣にご説明します。</p>
+      </div>
+    </section>
+
+    <!-- 理念 -->
+    <section class="section philosophy">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">Philosophy</span>
+          <span class="ja">私たちの考え方（ゆるめ）</span>
+        </div>
+        <div class="philosophy-inner">
+          <div class="philosophy-block fade-up">
+            <span class="icon">😴</span>
+            <h3>がんばらない美容を、すべての人に。</h3>
+            <p>「スキンケアって、こんなにがんばらないといけないの？」<br>そのシンプルな疑問から、ねむねむコスメは生まれました。<br>美容は義務じゃない。寝転がりながらでも、キレイになれていい。<br>私たちはそう、本気で思っています。（たぶん）</p>
+          </div>
+          <div class="philosophy-block fade-up">
+            <span class="icon">💤</span>
+            <h3>睡眠こそ、最強のコスメである。</h3>
+            <p>どんなに高価なクリームも、睡眠には勝てない。<br>ならば睡眠と組み合わせればいい。<br>これが、ねむねむコスメの根本思想です。<br>寝ている間に肌が勝手にきれいになる。それが理想です。</p>
+          </div>
+          <div class="philosophy-block fade-up">
+            <span class="icon">🌙</span>
+            <h3>「まあ、いっか」の精神で生きていく。</h3>
+            <p>スキンケアを忘れた日も、「まあ、いっか」。<br>パックをつけたまま寝落ちした日も、「まあ、いっか」。<br>そのゆるさが、実は一番肌に優しいのかもしれません。<br>（優しいかどうかは個人差があります）</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- メンバー -->
+    <section class="section members">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">Members</span>
+          <span class="ja">ねむねむを支える人たち</span>
+        </div>
+        <div class="members-grid">
+          <div class="member-card fade-up">
+            <span class="member-avatar">😪</span>
+            <span class="member-role">代表取締役CEO</span>
+            <h3 class="member-name">眠田 ぐっすり</h3>
+            <p class="member-desc">「寝ながらキレイになりたい」という夢を持ち続けて30年。平均睡眠時間11時間。会議中に寝る。</p>
+          </div>
+          <div class="member-card fade-up">
+            <span class="member-avatar">🥱</span>
+            <span class="member-role">商品開発部長</span>
+            <h3 class="member-name">うとう 太郎</h3>
+            <p class="member-desc">全商品を自分で試してから販売する主義。試している間に大体寝る。そして翌朝「あれ、よくなってる」と言う。</p>
+          </div>
+          <div class="member-card fade-up">
+            <span class="member-avatar">💤</span>
+            <span class="member-role">マーケティング部長</span>
+            <h3 class="member-name">ふとん 花子</h3>
+            <p class="member-desc">「寝てる間に売れる仕組みを作る」を座右の銘とする。実際に寝ている間に売れているかは不明。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="section company">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">Company</span>
+          <span class="ja">会社概要</span>
+        </div>
+        <div class="fade-up">
+          <table class="company-table">
+            <tr>
+              <th>会社名</th>
+              <td>株式会社ねむねむコスメ</td>
+            </tr>
+            <tr>
+              <th>設立</th>
+              <td>2020年3月（春眠暁を覚えずの季節に創業）</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>東京都ねむ区うとうと1-2-3 ふわふわビル5F</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>眠田 ぐっすり</td>
+            </tr>
+            <tr>
+              <th>従業員数</th>
+              <td>12名（うち昼寝中：常時3〜4名）</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>がんばらない美容のための化粧品の開発・販売<br>寝ながらできるスキンケアの研究</td>
+            </tr>
+            <tr>
+              <th>理念</th>
+              <td>がんばらない美容を、すべての人に。</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">😴 ねむねむコスメ</div>
+    <p>がんばらない美容を、すべての人に。</p>
+    <p class="footer-copy">© 2025 株式会社ねむねむコスメ All Rights Reserved.</p>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

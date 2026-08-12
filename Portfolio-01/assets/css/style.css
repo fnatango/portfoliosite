@@ -1,0 +1,1121 @@
+@charset "UTF-8";
+
+/* variables - 変数 */
+:root {
+  --color-primary: #2c3e50;    /* 知的なネイビー */
+  --color-accent: #3498db;     /* 清潔感のあるブルー */
+  --color-text: #334155;       /* 濃いグレー */
+  --color-text-light: #64748b; /* 補足用グレー */
+  --color-bg: #f8fafc;         /* 背景色 */
+  --color-white: #ffffff;
+  --font-main: "Zen Kaku Gothic New", sans-serif;
+  --font-rounded: "M PLUS Rounded 1c", sans-serif;
+  --inner-width: 640px;
+
+  
+}
+
+/* base - 初期設定 */
+html {
+  font-family: var(--font-main);
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* スクロールアニメーション用 */
+.about, .skills, .career, .works, .vision, .contact {
+  opacity: 0;
+  translate: 0 30px;
+  transition: opacity 0.7s ease, translate 0.7s ease;
+}
+.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* 共通パーツ：inner */
+.inner {
+  width: 100%;
+  max-width: var(--inner-width);
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @media (min-width: 768px){
+ 
+    max-width: 880px;
+  }
+}
+
+/* 共通パーツ：セクション見出し */
+h2 {
+  font-family: var(--font-rounded);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.skills__text, .works__text, .about__text, .vision__text, .contact__text {
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+/* header */
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  color: #ffff;
+  background-color: var(--color-primary);
+}
+
+.header__wrap{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding-inline: 30px;
+
+  @media (768px <= width){
+    height: 80px;
+  }
+}
+
+.header__logo{
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  @media (900px <= width){
+    font-size: 30px;
+  }
+}
+
+.header__menu-button{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  translate: 0 -50%;
+}
+
+.menu-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 26px;
+  border: none;
+
+  @media (768px <= width){
+    display: none;
+  }
+}
+
+.menu-button__bar{
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: calc(1px / 0);
+  transition: rotate 0.5s ease, translate 0.5s ease, opacity 0.5s ease;
+}
+
+.is-checked .menu-button__bar:first-of-type {
+  rotate: 225deg;
+  translate: 0 10px;
+}
+
+.is-checked .menu-button__bar:nth-of-type(2) {
+  opacity: 0;
+}
+
+.is-checked .menu-button__bar:last-of-type {
+  rotate: -225deg;
+  translate: 0 -10px;
+
+}
+
+.header__contents{
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow-y: hidden;
+  background-color: var(--color-primary);
+    transition: height 0.5s ease;
+
+    @media (768px <= width){
+    position: revert;
+    height: revert;
+    width: revert;
+  }
+}
+
+.header__contents.is-open {
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.header__nav{
+  padding-block: 40px;
+
+  @media (768px <= width){
+    padding: revert;
+  }
+}
+
+.header__list {
+  @media (768px <= width){
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.header__list-item {
+  text-align: center;
+}
+
+.header__link {
+  display: block;
+  padding-block: 1rlh;
+  padding-left: 30px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+  white-space: nowrap;
+}
+
+.header__link .nikukyu {
+  position: absolute;
+  top: 50%;
+  left: 0px;          /* 文字の左隣に表示 */
+  translate: 0 -50%;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  transition: opacity 0.3s ease, translate 0.3s ease;
+  pointer-events: none;
+  filter: brightness(0) invert(1);
+}
+
+.header__link:hover .nikukyu {
+  opacity: 0.55;
+  translate: 4px -50%;  /* ふわっと右へ滑り込む */
+}
+
+.main {
+  padding-top: 60px;
+
+  @media (768px <= width){
+    padding-top: 80px;
+  }
+}
+
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+
+  @media(768px <= width){
+    height: calc(100vh - 80px);
+  }
+}
+
+.hero__image {
+  width: inherit;
+  height: inherit;
+
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero__contents {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  /* min-height: 150px; */
+  padding: 32px;
+  color: var(--color-white);
+  background-color: rgb(15 23 42 / 70%);
+  box-sizing: border-box;
+
+  @media (768px <= width){
+    bottom: 40px;
+    max-width: 627px;
+    min-height: 174px;
+    padding-top: 2rem;
+    padding-left: 96px;
+    /* padding-left = padding-inline-start */
+    padding-right: 32px;
+  }
+}
+
+.hero__title {
+  margin-block: unset;
+  font-family: var(--font-rounded);
+  font-size: 3rem; /* 重なりを強調するため少し大きく */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+
+}
+
+.hero__description {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* --- About Section --- */
+/* --- About Section --- */
+.about {
+  padding: 60px 0;
+  background-color: var(--color-white);
+}
+
+.about__wrap {
+  display: flex;
+  flex-direction: column; /* スマホでは縦並び */
+  gap: 40px;
+}
+
+.about__media {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+/* HTMLのクラス名「about-image__cat」に合わせ、スマホ基準で記述 */
+.about-image__cat {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  background: #eee;
+}
+
+.about-image__cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* プロフィール写真（右下の自分の写真）を小さめ（35%）にして猫を際立たせる */
+.about-image__profile {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 35%; /* 猫の画像に対して35%のサイズ感に調整 */
+  aspect-ratio: 4 / 3;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border: 5px solid var(--color-white);
+  background: #eee;
+}
+
+.about-image__profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__text-wrap {
+  width: 100%;
+}
+
+/* ★PC表示（768px以上）のレイアウト上書き（モバイルファースト） */
+@media (min-width: 768px) {
+  .about__wrap {
+    flex-direction: row; /* 横並びにする */
+    align-items: center;
+    gap: 60px;
+  }
+
+  .about__media {
+    flex: 1.4; /* 画像エリアをテキスト（1.2）より広く確保して猫を大きく見せる */
+  }
+
+  .about__text-wrap {
+    flex: 1.2;
+  }
+}
+/* --- Skills Section --- */
+.skills {
+  padding: 60px 0;
+  text-align: center;
+  background-color: var(--color-bg);
+}
+
+.skills__inner {
+  max-width: var(--inner-width);
+  margin: 0 auto;
+  padding: 0 32px; /* 左右の余白を他のセクション（32px）と統一 */
+
+  /* ★PC表示のときは横幅を最大880pxまで広げて、カードにゆとりを持たせる */
+  @media (min-width: 768px) {
+    max-width: 880px;
+  }
+}
+
+.skills__lead {
+  margin-bottom: 50px;
+  color: var(--color-text-light);
+}
+
+.skills__list {
+  display: grid;
+  /* スマホでは1列、PCでは3列に自動で切り替えるための指定（念のため記述） */
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skills__list-item {
+  background: var(--color-white);
+  padding: 40px 24px; /* 横のパディングを少しだけ広げる */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  
+  /* テキストを左寄せにしたい場合は、以下のコメントアウトを解除してください */
+  /* text-align: left; */
+}
+
+/* --- Career Section --- */
+.career {
+  padding: 60px 0;
+  background-color: var(--color-primary);      /* ネイビー背景 */
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+  color: var(--color-white);
+}
+
+.career__title {
+  color: var(--color-white);
+}
+
+.career__text {
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+.career__list {
+  position: relative;
+  padding-left: 24px;
+  margin-top: 48px;
+}
+
+/* 縦のライン */
+.career__list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+}
+
+.career__list-item {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding-bottom: 32px;
+}
+
+.career__list-item:last-child {
+  padding-bottom: 0;
+}
+
+/* ライン上の丸ポチ */
+.career__list-item::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: -30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);   /* 光るポチ */
+}
+
+.career__date {
+  min-width: 80px;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  padding-top: 14px;
+  letter-spacing: 0.05em;
+}
+
+/* カード */
+.career__content {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.career__content:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(6px);               /* ホバーで右へ滑る */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.career__name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-white);
+}
+
+.career__description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+/* --- Works Section --- */
+.works {
+  padding: 60px 0;
+  background-color: var(--color-white);
+}
+
+.works__inner {
+  width: 100%;
+  max-width: var(--inner-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    max-width: 880px;
+  }
+}
+
+.works__lead {
+  margin-bottom: 40px;
+
+}
+
+.works__list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* スマホ時に作品同士が縦に重ならないよう、しっかり隙間を空ける */
+
+  @media(768px <= width){
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+ 
+  }
+}
+
+.works-item {
+  width: 100%;
+  
+  @media (768px <= width){
+     margin-top: revert;
+  }
+}
+
+.works-item__image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eee;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.works-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.works-item:hover .works-item__image img {
+  transform: scale(1.05);
+}
+
+.works-item__name {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.works-item__link {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+}
+
+/* --- Cat Slider --- */
+
+.cat-slider {
+  margin-top: 80px;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.cat-slider__lead {
+  margin-bottom: 40px;
+}
+
+.catSwiper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* スライド */
+
+.swiper-slide {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  opacity: 0.4;
+  transform: scale(0.80) !important;
+
+  transition:
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.6s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(0.9) !important;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.15);
+}
+
+/* 真ん中の写真（アクティブなスライド）にホバーしたときの動き */
+.swiper-slide-active:hover {
+  transform: scale(1.0) !important; /* 通常の1.05倍から、ホバー時は1.1倍に少し大きく */
+  box-shadow: 0 15px 30px rgba(44, 62, 80, 0.25); /* 浮き上がりに合わせて影も少し濃く広く */
+}
+
+/* ホバー時に写真そのものが枠からはみ出ないように担保（すでにある場合は不要です） */
+.swiper-slide-active img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+/* ナビボタン */
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 55% !important;
+  z-index: 10;
+
+  width: 56px;
+  height: 56px;
+
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  transform: translateY(-50%);
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.swiper-button-prev {
+  left: -24px;
+}
+
+.swiper-button-next {
+  right: -24px;
+}
+
+/* デフォルト矢印を非表示 */
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+}
+
+/* 自作矢印 */
+
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid var(--color-primary);
+}
+
+.swiper-button-prev::before {
+  border-left: 3px solid var(--color-primary);
+  transform: rotate(-45deg);
+  margin-left: 4px;
+}
+
+.swiper-button-next::before {
+  border-right: 3px solid var(--color-primary);
+  transform: rotate(45deg);
+  margin-right: 4px;
+}
+
+/* hover */
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.swiper-button-prev:hover::before,
+.swiper-button-next:hover::before {
+  border-color: var(--color-white);
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .swiper-button-prev {
+    left: 8px;
+  }
+
+  .swiper-button-next {
+    right: 8px;
+  }
+}
+/* --- Vision Section --- */
+.vision {
+  padding: 0; /* bg側でpaddingを持たせる */
+}
+
+.vision__bg {
+  padding: 60px 0;
+  background-image: url("../img/IMG_4342.JPG"); /* ← ねこ画像のパスを指定 */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* パララックス風の効果 */
+  position: relative;
+}
+
+/* 背景を暗くして文字を読みやすくするオーバーレイ */
+.vision__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 62, 80, 0.65); /* --color-primaryベースの半透明 */
+}
+
+/* innerよりも上に重ねる */
+.vision__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.vision__title {
+  color: var(--color-white);
+}
+
+.vision__description {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* スマホでは background-attachment: fixed が効かない端末があるため無効化 */
+@media (max-width: 768px) {
+  .vision__bg {
+    background-attachment: scroll;
+  }
+}
+
+/* --- Contact Section --- */
+.contact {
+  padding: 60px 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.contact__inner {
+  max-width: var(--inner-width);
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (768px <= width) {
+    max-width: 880px;
+  }
+}
+
+.contact__wrap {
+display: flex;
+  flex-direction: column; /* スマホでは縦並び、テキストが上、画像が下 */
+  gap: 40px;
+  text-align: center; /* スマホでは中央寄せ */
+
+  /* PC表示（768px以上）の設定 */
+  @media (min-width: 768px) {
+    flex-direction: row-reverse; /* 画像が右、フォームが左 */
+    align-items: flex-start;
+    gap: 60px;
+    text-align: left; /* PCでは左寄せ */
+  }
+}
+.contact__text-wrap {
+  width: 100%;
+
+  @media (768px <= width){
+  flex: 1.2;
+  }
+}
+
+.contact__title {
+  color: var(--color-white);
+}
+
+.contact__text {
+  color: var(--color-accent);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.contact__image {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  aspect-ratio: 4 / 3; /* 他の画像と比率を統一 */
+
+  /* PC表示（768px以上）のときだけ追従させる */
+  @media (min-width: 768px) {
+    flex: 1;
+    max-width: none;
+    margin: 0;
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.contact__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- メールフォーム用のスタイル --- */
+.contact__form {
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.03); /* ほんの少しだけフォーム背景を明るく */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (768px <= width) {
+    padding: 30px;
+  }
+}
+
+.contact__form-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact__form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact__form-input,
+.contact__form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.08); /* 知的な半透明の入力エリア */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* 入力欄にフォーカスした時、清潔感のあるブルーに光る効果 */
+.contact__form-input:focus,
+.contact__form-textarea:focus {
+  border-color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* プレースホルダー（薄い文字）の色調整 */
+.contact__form-input::placeholder,
+.contact__form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 送信ボタン */
+.contact__form-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact__form-submit:hover {
+  background-color: #2980b9; /* 少し濃いブルーに */
+}
+
+.contact__form-submit:active {
+  transform: scale(0.98); /* 押した時に少し凹むアニメーション */
+}
+
+/* --- SNSエリア用のスタイル --- */
+.contact__sns-lead {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.contact__links {
+  display: grid;
+  grid-template-columns: 1fr; /* スマホは1列 */
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr); /* PCは3等分 */
+  }
+}
+.contact__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* アイコンと文字の間隔 */
+  padding: 12px 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.contact__sns-text {
+  white-space: nowrap; /* ★文字がボタン内で絶対に改行されないように強力に固定 */
+}
+
+/* --- SNSアイコンの画像表示設定（確定版） --- */
+.contact__sns-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  /* 通常時は、どんな色の画像もCSSで一律「真っ白」に強制変換します */
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+/* ★エックスのロゴ専用の設定：
+   ブレンドモード(mix-blend-mode)は干渉の原因になるため完全に削除しました。
+   通常時は他のアイコンと同じく、このフィルターだけで綺麗に白いロゴになります。
+*/
+.logo-x-adjust {
+  border-radius: 2px;
+}
+
+/* --- ホバー時の動き --- */
+.contact__sns-link:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ★ホバー時にアイコンの色を「暗いネイビー（Primaryカラー）」に変える仕組み
+   brightness(0) で一度完全に真っ黒にしたあと、
+   sepiaやsaturate、hue-rotateを使って、変数で指定しているネイビー（#2c3e50）に極めて近い色へとCSSだけで変換します。
+   これにより、元の画像の色に関係なく、すべてのアイコンがホバー時に同じネイビーに変わります。
+*/
+.contact__sns-link:hover .contact__sns-icon {
+  filter: brightness(0) sepia(1) saturate(20) hue-rotate(190deg) brightness(0.4);
+}
+
+/* Instagramだけは、ホバーしたときに公式の綺麗なグラデーションがそのまま出るようにする設定 */
+.contact__sns-link:hover .contact__sns-icon[src*="Instagram"] {
+  filter: none;
+}
+
+/* --- Footer Section --- */
+.footer {
+  background-color: #1e293b; /* メインのネイビーより少しだけ暗い色、または var(--color-primary) でもOK */
+  color: rgba(255, 255, 255, 0.7);
+  padding: 40px 0 30px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.footer__nav {
+  margin-bottom: 24px;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__link {
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-accent); /* ホバー時に清潔感のあるブルーに */
+  opacity: 1;
+}
+
+.footer__message {
+  margin-bottom: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__copyright {
+  display: block;
+  font-family: var(--font-rounded);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* --- ページトップボタン --- */
+.page-top {
+  position: fixed;
+  bottom: 32px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease, translate 0.4s ease, background-color 0.3s;
+  display: grid;           /* ← 追加 */
+  place-items: center;     /* ← 追加 */
+
+  /* 最初は非表示 */
+  opacity: 0;
+  translate: 0 16px;
+  pointer-events: none;
+}
+
+.page-top.is-visible {
+  opacity: 1;
+  translate: 0 0;
+  pointer-events: auto;
+}
+
+.page-top:hover {
+  background-color: #2980b9;
+}
+
+.page-top:active {
+  transform: scale(0.95);
+}
+
+@media (min-width: 768px) {
+  /* 既存のPC用コードと一緒に、以下をまとめて追記・整理してください */
+  .about,
+  .skills,
+  .career,
+  .works,
+  .vision__bg,
+  .contact {
+    padding: 80px 0; /* PCでは少しゆとりを持たせて80pxに */
+  }
+}

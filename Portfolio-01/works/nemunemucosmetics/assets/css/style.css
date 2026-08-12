@@ -1,0 +1,400 @@
+@charset "UTF-8";
+
+/* @importは必ず一番上に記述します */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/* ---- 変数 ---- */
+:root {
+  --color-bg: #fdf6f0;
+  --color-primary: #f2a7c3;
+  --color-secondary: #b5d5f5;
+  --color-accent: #f9e04b;
+  --color-dark: #3d2b2b;
+  --color-text: #5c3d3d;
+  --color-text-light: #a07878;
+  --color-white: #ffffff;
+  --color-cream: #fff8f2;
+  --font-title: "Zen Maru Gothic", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+}
+
+/* ---- リセット ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul { list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+a:hover { opacity: 0.75; }
+
+/* ---- 共通ヘッダー ---- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--color-white);
+  border-bottom: 3px solid var(--color-primary);
+  box-shadow: 0 2px 12px rgba(242,167,195,0.15);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ---- ロゴ ---- */
+.site-logo {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  z-index: 200;
+
+  @media (768px <= width) {
+    font-size: 1.4rem;
+  }
+}
+
+.site-logo .logo-emoji {
+  font-size: 1.6rem;
+}
+
+/* ---- ハンバーガーボタン ---- */
+.nemu-menu-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;               /* ← space-between から gap に変更 */
+  width: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+  flex-shrink: 0;
+  padding: 0;             /* ← ブラウザのデフォルトpaddingをリセット */
+
+  @media (768px <= width) {
+    display: none;
+  }
+}
+
+.nemu-menu-btn__bar {
+  width: 100%;
+  height: 3px;            /* ← 3本とも同じ高さ */
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: rotate 0.4s ease, translate 0.4s ease, opacity 0.4s ease;
+  flex-shrink: 0;         /* ← バーが縮まないように */
+}
+
+/* × アニメーション */
+.nemu-menu-btn.is-open .nemu-menu-btn__bar:first-child {
+  rotate: 135deg;
+  translate: 0 9px;       /* 3px（バー）+ 6px（gap）= 9px */
+}
+
+.nemu-menu-btn.is-open .nemu-menu-btn__bar:nth-child(2) {
+  rotate: 90deg;
+  opacity: 0;
+}
+
+.nemu-menu-btn.is-open .nemu-menu-btn__bar:last-child {
+  rotate: -135deg;
+  translate: 0 -9px;      /* 同じく 9px */
+}
+/* ---- ドロワー（ナビ＋カート） ---- */
+.header-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+
+  @media (768px <= width) {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    gap: 24px;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: transparent;
+  }
+}
+
+.header-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- グローバルナビ ---- */
+.global-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (768px <= width) {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+}
+
+.global-nav a {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-text);
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1.2rem;
+  padding: 8px 24px;
+
+  @media (768px <= width) {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+}
+
+.global-nav a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  opacity: 1;
+}
+
+.global-nav a.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---- カートアイコン ---- */
+.cart-icon-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cart-count {
+  color: var(--color-primary);
+  font-weight: 900;
+  
+}
+
+.cart-reset-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0 0 0 4px;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cart-reset-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ---- 共通フッター ---- */
+.site-footer {
+  background-color: var(--color-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 48px 32px;
+  font-size: 0.85rem;
+}
+
+.site-footer .footer-logo {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.site-footer .footer-copy {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ---- 共通：セクション ---- */
+.section {
+  padding: 64px 0;
+
+  @media (768px <= width) {
+    padding: 100px 0;
+  }
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-heading .en {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  display: block;
+  line-height: 1;
+
+  @media (768px <= width) {
+    font-size: 3rem;
+  }
+}
+
+.section-heading .ja {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-top: 8px;
+  display: block;
+}
+
+/* ---- 共通：ボタン ---- */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  opacity: 1;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+/* ---- カート（商品ページ用） ---- */
+.cart-wrap {
+  display: flex;
+  gap: 16px;
+
+  @media (768px <= width) {
+    gap: 36px;
+  }
+}
+
+.cart-select {
+  width: 5em;
+  padding: 14px 18px;
+  border: 2px solid rgba(242,167,195,0.3);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.cart-select:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+/* ---- ふわふわアニメーション ---- */
+@keyframes fuwa {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fuwa-slow {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* ---- スクロールアニメーション ---- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

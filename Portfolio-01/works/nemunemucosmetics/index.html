@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社ねむねむコスメ | 寝ながらキレイになれたらいいな</title>
+  <meta name="description" content="がんばらない美容を、すべての人に。株式会社ねむねむコスメ公式サイト。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      min-height: 100vh;
+      padding-top: 68px;
+      background-color: var(--color-cream);
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(242,167,195,0.25) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(181,213,245,0.3) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(249,224,75,0.1) 0%, transparent 60%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text .eyebrow {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: var(--color-dark);
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 2.8rem;
+      line-height: 1.4;
+      color: var(--color-dark);
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 .accent {
+      color: var(--color-primary);
+      position: relative;
+    }
+
+    .hero-text h1 .accent::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: var(--color-accent);
+      opacity: 0.5;
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .hero-text .lead {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-illust {
+      width: 360px;
+      height: 360px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #f9c8dc 50%, var(--color-secondary) 100%);
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9rem;
+      animation: fuwa-slow 4s ease-in-out infinite;
+      box-shadow: 0 20px 60px rgba(242,167,195,0.4);
+      position: relative;
+    }
+
+    .hero-illust::before {
+      content: "💤";
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      font-size: 2.5rem;
+      animation: fuwa 2s ease-in-out infinite;
+    }
+
+    .hero-illust::after {
+      content: "✨";
+      position: absolute;
+      bottom: 10px;
+      left: 0px;
+      font-size: 2rem;
+      animation: fuwa 2.5s ease-in-out infinite 0.5s;
+    }
+
+    .hero-deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-deco-1 {
+      width: 300px;
+      height: 300px;
+      background-color: var(--color-primary);
+      top: -80px;
+      right: -80px;
+    }
+
+    .hero-deco-2 {
+      width: 200px;
+      height: 200px;
+      background-color: var(--color-accent);
+      bottom: 40px;
+      left: -60px;
+    }
+
+    /* ---- コンセプト ---- */
+    .concept {
+      background-color: var(--color-primary);
+      padding: 80px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concept::before {
+      content: "😴💤🌙";
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.08;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      letter-spacing: 2rem;
+    }
+
+    .concept-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .concept h2 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--color-white);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .concept p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    /* ---- 商品 ---- */
+    .products {
+      background-color: var(--color-bg);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background-color: var(--color-white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(242,167,195,0.25);
+    }
+
+    .product-thumb {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .product-thumb-1 { background: linear-gradient(135deg, #fde8f0, #f9c8dc); }
+    .product-thumb-2 { background: linear-gradient(135deg, #d4eaff, #b5d5f5); }
+    .product-thumb-3 { background: linear-gradient(135deg, #fff3c4, #f9e04b); }
+
+    .product-body {
+      padding: 24px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background-color: var(--color-cream);
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .product-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 2px;
+      transition: gap 0.3s;
+    }
+
+    /* ---- お知らせ ---- */
+    .news {
+      background-color: var(--color-cream);
+    }
+
+    .news-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 24px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px dashed rgba(242,167,195,0.5);
+    }
+
+    .news-date {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      min-width: 90px;
+      font-weight: 500;
+    }
+
+    .news-tag {
+      background-color: var(--color-primary);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      min-width: 56px;
+      text-align: center;
+    }
+
+    .news-text {
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    /* ---- CTA ---- */
+    .cta {
+      background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+      padding: 100px 32px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 36px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-buttons { justify-content: center; }
+      .hero-illust { width: 260px; height: 260px; font-size: 6rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .news-item { flex-wrap: wrap; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+<div class="header-inner">
+  <div class="site-logo">
+    <span class="logo-emoji">😴</span>
+    ねむねむコスメ
+  </div>
+
+  <!-- ハンバーガーボタン（スマホのみ表示） -->
+  <button type="button" id="js-nemu-drawer-btn" class="nemu-menu-btn">
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+    <span class="nemu-menu-btn__bar"></span>
+  </button>
+
+  <!-- ナビ＋カート -->
+  <div id="js-nemu-drawer" class="header-drawer">
+    <nav class="global-nav">
+      <ul>
+        <li><a href="./index.html">TOP</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon-wrap">
+      🛒 <span>カート</span><span id="js-cart-count" class="cart-count">0</span>
+      <button type="button" id="js-cart-reset" class="cart-reset-btn">🗑️</button>
+    </div>
+  </div>
+</div>  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-deco hero-deco-1"></div>
+      <div class="hero-deco hero-deco-2"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow">🌙 がんばらない美容、はじめました</span>
+          <h1>寝ながら<br><span class="accent">キレイになれたら</span><br>いいな、という<br>願望だけで創業しました。</h1>
+          <p class="lead">無理しない。がんばらない。ただ眠るだけ。<br>それでもキレイでいたいすべての人へ。</p>
+          <div class="hero-buttons">
+            <a href="./products.html" class="btn btn-primary">商品を見る 🛍️</a>
+            <a href="./about.html" class="btn btn-outline">私たちについて</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-illust">😴</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- コンセプト -->
+    <section class="concept">
+      <div class="concept-inner fade-up">
+        <h2>「美容ってがんばらなきゃいけないの？」<br>そう思ったことが、すべてのはじまりです。</h2>
+        <p>創業者は、ある夜ベッドに倒れ込みながらこう思いました。<br>「スキンケア、めんどくさい。でもキレイでいたい。」<br>この矛盾を解決するため、ねむねむコスメは誕生しました。<br>私たちは本気で、寝るだけでキレイになれる未来を目指しています。（たぶん）</p>
+      </div>
+    </section>
+
+    <!-- 商品 -->
+    <section class="section products">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">Products</span>
+          <span class="ja">ねむねむの看板商品たち</span>
+        </div>
+        <div class="products-grid">
+
+          <div class="product-card fade-up">
+            <div class="product-thumb product-thumb-1">🫧</div>
+            <div class="product-body">
+              <span class="product-tag">保湿クリーム</span>
+              <h3 class="product-name">「もうどうにでもなれ」<br>保湿クリーム</h3>
+              <p class="product-desc">あきらめたとき、肌は逆にきれいになる説。とにかく塗って寝てください。</p>
+              <a href="./products.html" class="product-link">詳しく見る →</a>
+            </div>
+          </div>
+
+          <div class="product-card fade-up">
+            <div class="product-thumb product-thumb-2">🌙</div>
+            <div class="product-body">
+              <span class="product-tag">フェイスパック</span>
+              <h3 class="product-name">ぐっすり眠れる香りの<br>フェイスパック「おやすみ〜」</h3>
+              <p class="product-desc">貼ったら5秒で眠れます（個人差あり）。翌朝はがすのを忘れないでください。</p>
+              <a href="./products.html" class="product-link">詳しく見る →</a>
+            </div>
+          </div>
+
+          <div class="product-card fade-up">
+            <div class="product-thumb product-thumb-3">💛</div>
+            <div class="product-body">
+              <span class="product-tag">リップケア</span>
+              <h3 class="product-name">やる気0%処方の<br>くちびるケア「ねむねむリップ」</h3>
+              <p class="product-desc">塗るだけ。それ以上のことは何もしなくていいです。本当に何もしなくていいです。</p>
+              <a href="./products.html" class="product-link">詳しく見る →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- お知らせ -->
+    <section class="section news">
+      <div class="section-inner">
+        <div class="section-heading fade-up">
+          <span class="en">News</span>
+          <span class="ja">最近のできごと</span>
+        </div>
+        <ul class="news-list">
+          <li class="news-item fade-up">
+            <span class="news-date">2025.11.01</span>
+            <span class="news-tag">お知らせ</span>
+            <span class="news-text">「もうどうにでもなれ」保湿クリームが売り切れました。補充します。</span>
+          </li>
+          <li class="news-item fade-up">
+            <span class="news-date">2025.10.15</span>
+            <span class="news-tag">新商品</span>
+            <span class="news-text">「ねむねむリップ」限定カラー「うとうとピンク」発売。</span>
+          </li>
+          <li class="news-item fade-up">
+            <span class="news-date">2025.09.30</span>
+            <span class="news-tag">社内</span>
+            <span class="news-text">社内で昼寝選手権を開催しました。全員優勝です。</span>
+          </li>
+          <li class="news-item fade-up">
+            <span class="news-date">2025.08.01</span>
+            <span class="news-tag">お知らせ</span>
+            <span class="news-text">夏季休業のお知らせ。暑いのでみんな休みます（2週間）。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="fade-up">
+        <h2>今夜から、がんばらない美容を。😴</h2>
+        <p>まずは商品ページを、ねむねむしながら見てみてください。</p>
+        <a href="./products.html" class="btn btn-primary" style="background:white; color:var(--color-primary);">商品一覧へ 🛍️</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">😴 ねむねむコスメ</div>
+    <p>がんばらない美容を、すべての人に。</p>
+    <p class="footer-copy">© 2025 株式会社ねむねむコスメ All Rights Reserved.</p>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>
